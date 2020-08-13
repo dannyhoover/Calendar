@@ -70,7 +70,14 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-.col-md-12 {
+.col-md-1 {
+  background-color: lightskyblue;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.col-md-10 {
   text-align: center;
   background-color: lightgreen;
 }
+
