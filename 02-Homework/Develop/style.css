@@ -21,7 +21,8 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.col-md-10{
+.description{
+  width: 900px;
   white-space: pre-wrap;
 }
 

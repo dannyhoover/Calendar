@@ -18,7 +18,7 @@ for (let hour = startTime; hour <= endTime; hour++) {
     hourDisplay.className = "hour";
     hourDisplay.textContent = `${hour % 12 || 12} ${hour > 11 ? "PM" : "AM"}`;
     let eventDisplay = document.createElement("textarea");
-    eventDisplay.className = `col-md-10 ${hour < currentHour ? "past" : hour > currentHour ? "future" : "present"}`;
+    eventDisplay.className = `description ${hour < currentHour ? "past" : hour > currentHour ? "future" : "present"}`;
     eventDisplay.value = localStorage.getItem(hour) || ""; 
     let saveButton = document.createElement("button");
     saveButton.className = "saveBtn";
