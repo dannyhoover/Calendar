@@ -1,6 +1,17 @@
 # Calendar
 
-This is a simple calendar app to help schedule the users day. It utilizes third-party APIs and jQuery to help the user save dynamically created events for each hour of the day in the browser.
+This is a simple calendar app to help schedule the users day. It utilizes third-party APIs and jQuery to help the user save dynamically created events for each hour of the day in the browser. I utilized JQUERY to manipulate the html file with my javascript. This helps the program adjust if more hours in the day are wanted.
+
+This is what the page looks like.
+
+![day planner demo 1](./Assets/calendar.img3.jpg)
+
+Past events are grayed out depending on the time the page is viewed. The current event is highlighted red, and future events are green.
+The user can input their own events that will be saved even after the page is refreshed.
+
+![day planner demo 2](./Assets/calendar.img2.jpg)
+
+The time is pulled whenever the page is opened. 
 
 Assignment details below:
 
