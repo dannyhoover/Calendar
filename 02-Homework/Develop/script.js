@@ -1,19 +1,22 @@
+// calendar start and end times for the day
 const startTime = 8;
 const endTime = 17;
 
+// current time
 const currentHour = moment().format("H");
 
+// display the current day
 const dateDisplay = document.querySelector("#currentDay");
 const displayContainer = document.querySelector(".container");
-
 dateDisplay.textContent = moment().format("dddd, MMMM Do");
 
+// dynamically created rows for events and hour labels with save buttons for each
 for (let hour = startTime; hour <= endTime; hour++) {
     let div = document.createElement("div");
     div.className = "row time-block";
     let hourDisplay = document.createElement("div");
     hourDisplay.className = "hour";
-    hourDisplay.textContent = `${hour % 12 || 12}:00 ${hour > 11 ? "PM" : "AM"}`;
+    hourDisplay.textContent = `${hour % 12 || 12} ${hour > 11 ? "PM" : "AM"}`;
     let eventDisplay = document.createElement("textarea");
     eventDisplay.className = `description ${hour < currentHour ? "past" : hour > currentHour ? "future" : "present"}`;
     eventDisplay.value = localStorage.getItem(hour) || ""; 
