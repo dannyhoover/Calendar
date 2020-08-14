@@ -1,43 +1,28 @@
-// rows for hours in the day
-var hourRowDisplay = document.querySelector("#target-row");
+const startTime = 8;
+const endTime = 17;
 
+const currentHour = moment().format("H");
 
-// events in the calendar
-var eventList = [];
+const dateDisplay = document.querySelector("#currentDay");
+const displayContainer = document.querySelector(".container");
 
-var eventItem = document.getElementById("target-row");
-eventItem.textContent = eventList[0];
+dateDisplay.textContent = moment().format("dddd, MMMM Do");
 
-// pull current date and put on the screen
-var date = new Date();
-let dateDisplay = document.querySelector("#currentDay");
-function displayDate() {
-    dateDisplay.textContent = date;
+for (let hour = startTime; hour <= endTime; hour++) {
+    let div = document.createElement("div");
+    div.className = "row time-block";
+    let hourDisplay = document.createElement("div");
+    hourDisplay.className = "hour";
+    hourDisplay.textContent = `${hour % 12 || 12}:00 ${hour > 11 ? "PM" : "AM"}`;
+    let eventDisplay = document.createElement("textarea");
+    eventDisplay.className = `description ${hour < currentHour ? "past" : hour > currentHour ? "future" : "present"}`;
+    eventDisplay.value = localStorage.getItem(hour) || ""; 
+    let saveButton = document.createElement("button");
+    saveButton.className = "saveBtn";
+    saveButton.innerHTML = '<i class="far fa-save"/>'
+    saveButton.addEventListener("click", function() {
+        localStorage.setItem(hour, eventDisplay.value);
+    })
+    div.append(hourDisplay, eventDisplay, saveButton);
+    displayContainer.append(div);
 }
-displayDate();
-
-// notation of current hour on calendar
-var hourSet = date.getHours();
-
-// save button
-let saveBtn = document.querySelector("#target-save");
-$(document).ready(function () {
-    $("#target-save").on("click", function () {
-        saveEvent();
-    });
-});
-
-function saveEvent() {
-    let eventText = localStorage.getItem("eventText")
-    if (eventText===null) {
-        eventText = "";
-    } else {
-        eventText = JSON.parse(eventText);
-    }
-    eventText.push({
-        event: eventText
-    });
-    eventText = JSON.stringify(eventText);
-    localStorage.setItem("eventText", eventText);
-}
-
