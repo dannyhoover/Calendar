@@ -1,5 +1,5 @@
 // calendar start and end times for the day
-const startTime = 9;
+const startTime = 8;
 const endTime = 17;
 
 // current time
